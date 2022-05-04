@@ -8,9 +8,8 @@
  </ul>
  
  <h4>How to Install</b>
- <p>1. clone the project from repository https://github.com/rahulpra567/node-restful-api-swagger-mongoose.git<p>
- 
- <p>2. download the repository
+ 1. clone the project from repository <p>https://github.com/rahulpra567/node-restful-api-swagger-mongoose.git<p>
+ 2. download the repository
 
 
  
