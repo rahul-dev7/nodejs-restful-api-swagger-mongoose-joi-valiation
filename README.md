@@ -8,8 +8,16 @@
  </ul>
  
  <h4>How to Install</h4>
- 1. clone the project from repository <b>https://github.com/rahulpra567/node-restful-api-swagger-mongoose.git<b>
- 2. download the repository
-
-
+ 1. clone the project from repository <b>https://github.com/rahulpra567/node-restful-api-swagger-mongoose.git</b><br>
+ 2. download the repository<br>
  
+<h4>Install the npm dependencies</h4>
+First of all, we need install npm package that in pacakge.json<br>
+we need run command <b>npm install</b> in project in window.<br>
+
+<h4>How to Run for locally</h4>
+we need run command <b>npm start</b> for run the project.
+
+
+
+
