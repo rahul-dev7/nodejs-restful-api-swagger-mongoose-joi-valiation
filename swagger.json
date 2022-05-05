@@ -5,24 +5,264 @@
         "version": "1.0.0",
         "title": "Tasks API",
         "contact": {
-            "email": "abc@gmail.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "email": "rahul.info567@gmail.com"
         }
     },
     "schemes": ["http", "https"],
     "host": "localhost:3000",
     "basePath": "/api",
-    "paths" : {
+    "paths" : {  
+        "/register" : {
+            "post" : {
+                "tags": ["Auth"],
+                "summary" : "Register the user",
+                "description": "Register the user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "todo object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "firstname": {
+                                    "type": "string"
+                                },
+                                "lastname": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }                                 
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "failed operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login" : {
+            "post" : {
+                "tags": ["Auth"],
+                "summary" : "Login the user",
+                "description": "Login the user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "todo object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }                                 
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LoginResponse"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Input",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "failed operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/refreshToken" : {
+            "post" : {
+                "tags": ["Auth"],
+                "summary" : "Refresh the token",
+                "description": "Refresh the token",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "todo object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "token": {
+                                    "type": "string"
+                                }                            
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LoginResponse"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Input",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "failed operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout" : {
+            "delete" : {
+                "tags": ["Auth"],
+                "summary" : "Logout the user",
+                "description": "Logout the user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "todo object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "token": {
+                                    "type": "string"
+                                }                            
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SuccessResponse"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "failed operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ErrorResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/todos" : {
             "get" : {
                 "tags": ["Todo CRUD operations"],
                 "summary" : "Get all the todos",
                 "description": "Get all the todos",
                 "produces": ["application/json"],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "todo id that needs to be deleted",
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -50,6 +290,12 @@
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "todo id that needs to be deleted",
+                        "type": "string"
+                    },
                     {
                         "in": "body",
                         "name": "body",
@@ -92,6 +338,12 @@
                 "description": "Update the todo",
                 "produces": ["application/json"],
                 "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "todo id that needs to be deleted",
+                        "type": "string"
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -151,6 +403,12 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
+                        "name": "token",
+                        "in": "header",
+                        "description": "todo id that needs to be deleted",
+                        "type": "string"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "todo id that needs to be deleted",
@@ -183,54 +441,7 @@
                     }
                 }
             }
-        },
-        "/register" : {
-            "post" : {
-                "tags": ["Auth"],
-                "summary" : "Register the user",
-                "description": "Register the user",
-                "produces": ["application/json"],
-                "consumes": ["application/json"],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "todo object",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "firstname": {
-                                    "type": "string"
-                                },
-                                "lastname": {
-                                    "type": "string"
-                                },
-                                "email": {
-                                    "type": "string"
-                                },
-                                "password": {
-                                    "type": "string"
-                                }                                 
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/todosResponse"
-                            }
-                        }
-                    }
-                }
-            }
         }
-
-        
     }, 
     "definitions": {
         "todosResponse": {
@@ -240,6 +451,20 @@
                     "type": "string"
                 },
                 "data": {
+                    "type": "string"
+                }
+            }
+        },
+        "LoginResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "refreshToken": {
                     "type": "string"
                 }
             }
@@ -258,7 +483,30 @@
                 }
             }
         },
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            }
+        },
         "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "string"
+                }
+            }
+
+        },
+        "ErrorResponse": {
             "type": "object",
             "properties": {
                 "message": {

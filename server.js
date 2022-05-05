@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const swaggerDocument = require('./swagger.json');
@@ -7,11 +8,12 @@ const mongoose = require('mongoose');
 const  fs = require('fs');
 const customCss = fs.readFileSync((process.cwd()+"/swagger.css"), 'utf8');
 
+
 // Router
 const todoRouter = require('./routes/todoRoutes');
 const indexRouter = require('./routes/authRoutes');
 
-const port = 3000;
+const port = process.env.TOKEN_SERVER_PORT;
 const app = express();
 app.use(express.json());
 const mongoDB = 'mongodb://127.0.0.1/todos';
