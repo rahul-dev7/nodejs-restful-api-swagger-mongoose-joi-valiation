@@ -1,3 +1,4 @@
+const { compareSync } = require('bcrypt');
 const Todo = require('../model/todo');
 
 getTodos = () => {
@@ -19,13 +20,12 @@ getTodoById = (id) => {
 }
 
 updateTodo = (data, id) => {
+    console.log(id.toString());
    let newTodo = new Todo(data);
 
-    return Todo.updateOne(
-        { _id: id },
+    return Todo.findByIdAndUpdate(id.toString(),
         { $set: data },
-        { upsert: true }
-    ); 
+        { upsert: true }); 
 }
 
 

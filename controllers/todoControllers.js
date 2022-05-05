@@ -12,6 +12,7 @@ exports.createTodo = async (req, res,next) => {
 
 exports.getTodos = async(req, res,next) => {
     try {
+        console.log(req.headers, 'header');
         let todos = await todoService.getTodos();
         return Common.sendSuccessResponse(res, 200, "Success", todos);
     }
@@ -40,16 +41,10 @@ exports.getUpdate = async(req, res,next) => {
         });
 
         const updateTodo = await todoService.updateTodo(updateDataObj, todo._id)
-        if(updateTodo['modifiedCount'] > 0) {
-            return Common.sendSuccessResponse(res, 200, "todo is updated successfully", todos);
-        }
-        else {
-            return Common.sendErrorResponse(res, 500, "todo is not updated successfully", '');   
-        }
-        
+        return Common.sendSuccessResponse(res, 200, "todo is updated successfully", updateTodo);
     }
     catch(err) {
-        return Common.sendErrorResponse(res, 500, "todo is not updated successfully", '');   
+        return Common.sendErrorResponse(res, 500, "todo is not updated successfully", err);   
     }  
 }
 
