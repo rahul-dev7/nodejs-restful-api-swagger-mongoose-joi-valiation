@@ -15,6 +15,9 @@
 First of all, we need install npm package that in pacakge.json<br>
 we need run command <b>npm install</b> in project in window.<br>
 
+<h4>Set Environment</h4>
+we need rename of file <b>env.example</b> to <b>.env</b> file<br>
+
 <h4>How to Run for locally</h4>
 we need run command <b>npm start</b> for run the project.
 
