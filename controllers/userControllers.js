@@ -56,8 +56,7 @@ exports.refreshToken = async(req, res, next) => {
     }
     catch(error) {
         return Common.sendErrorResponse(res, 500, "Internal Server Error", error);
-    }
-    
+    }  
 }
 
 exports.logout = async(req, res, next) => {

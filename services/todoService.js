@@ -2,7 +2,7 @@ const { compareSync } = require('bcrypt');
 const Todo = require('../model/todo');
 
 getTodos = () => {
-    return  Todo.find({}).exec();
+    return  Todo.find({}).populate('user').exec();
 }
 
 saveTodo = (data) => {
@@ -25,7 +25,7 @@ updateTodo = (data, id) => {
 
     return Todo.findByIdAndUpdate(id.toString(),
         { $set: data },
-        { upsert: true }); 
+        {new:true}); 
 }
 
 

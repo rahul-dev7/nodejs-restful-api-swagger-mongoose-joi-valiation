@@ -12,7 +12,6 @@ exports.createTodo = async (req, res,next) => {
 
 exports.getTodos = async(req, res,next) => {
     try {
-        console.log(req.headers, 'header');
         let todos = await todoService.getTodos();
         return Common.sendSuccessResponse(res, 200, "Success", todos);
     }
@@ -26,7 +25,7 @@ exports.getUpdate = async(req, res,next) => {
    
     try {
         let updateDataObj = {};
-        let fieldArray = ['title', 'description'];
+        let fieldArray = ['title', 'description', 'user'];
         let id = Number(req.params.id);
         let data = req.body;
 
