@@ -312,6 +312,9 @@
                                 },
                                 "description": {
                                     "type": "string"
+                                },
+                                "user": {
+                                    "type": "string"
                                 }
                                  
                             }
@@ -363,6 +366,9 @@
                                     "type": "string"
                                 },
                                 "description": {
+                                    "type": "string"
+                                },
+                                "user": {
                                     "type": "string"
                                 }
                             }
