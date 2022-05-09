@@ -486,6 +486,9 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "user": {
+                    "type": "string" 
                 }
             }
         },
