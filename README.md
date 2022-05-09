@@ -21,7 +21,7 @@ we need rename of file <b>env.example</b> to <b>.env</b> file<br>
 <h4>How to Run for locally</h4>
 we need run command <b>npm start</b> for run the project.
 
-<h4>Show All Swagger Api UI </h4>
+<h4>Show All Swagger Api </h4>
 http://localhost:3000/api-docs
 
 
