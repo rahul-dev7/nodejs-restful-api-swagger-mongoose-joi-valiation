@@ -1,5 +1,6 @@
 const { compareSync } = require('bcrypt');
 const Todo = require('../model/todo');
+const user = require('../model/user');
 
 getTodos = () => {
     return  Todo.find({}).populate('user').exec();
