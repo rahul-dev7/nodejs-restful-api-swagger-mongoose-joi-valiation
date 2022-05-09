@@ -1,13 +1,13 @@
 {
   "name": "noderestfulapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "create restful api using swagger, mongoose and joi validation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Rahul Prajapati",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
